@@ -2,6 +2,10 @@
 
 Site de estudos para o ENEM com foco em redação, português e treino guiado por IA.
 
+## Site publicado
+
+https://enem-mentor.vercel.app
+
 ## Rodar localmente
 
 ```powershell
