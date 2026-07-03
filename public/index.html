@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ENEM Mentor - Redação e Português</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">ENEM 2026</span>
+        <h1>Plano adaptativo para chegar forte na redação</h1>
+      </div>
+      <nav aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#passos">Passo a passo</a>
+        <a href="#aulas">Aulas</a>
+        <a href="#temas">Temas</a>
+        <a href="#redacao">Redação</a>
+        <a href="#plano">Plano</a>
+        <a href="#assuntos">Assuntos</a>
+        <a href="#metodos">Métodos</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="inicio" class="hero page-section" aria-label="Painel inicial">
+        <div class="hero-copy">
+          <p class="kicker">1 de novembro: Linguagens, Humanas e Redação. 8 de novembro: Matemática e Natureza.</p>
+          <h2>Seu treino começa pela redação, mas cobre a prova inteira.</h2>
+          <p>Agora o site funciona como trilha de estudo: aula guiada, repertórios para decorar, temas de treino e correção por IA quando a Gemini estiver ativa.</p>
+          <div class="actions">
+            <a class="button primary" href="#passos">Começar pelo passo a passo</a>
+            <a class="button secondary" href="#redacao">Redação só depois</a>
+            <a class="button secondary" href="#plano">Ver rotina</a>
+          </div>
+        </div>
+        <div class="countdown" aria-label="Contagem regressiva">
+          <div>
+            <strong id="daysFirst">0</strong>
+            <span>dias até o 1º dia</span>
+          </div>
+          <div>
+            <strong id="daysSecond">0</strong>
+            <span>dias até o 2º dia</span>
+          </div>
+          <div>
+            <strong id="essayAverage">--</strong>
+            <span>média em redação</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="passos" class="path-section page-section">
+        <div class="section-title">
+          <span class="eyebrow">Ordem certa</span>
+          <h2>Primeiro o passo a passo. Depois a redação completa.</h2>
+          <p>Você não precisa começar escrevendo 30 linhas. Primeiro aprende a entender o tema, juntar repertório e montar argumento. A redação completa vem no fim.</p>
+        </div>
+
+        <div class="course-shell">
+          <aside class="course-menu" aria-label="Etapas do curso">
+            <button class="course-step active" type="button" data-lesson="interpretacao">
+              <span>1</span>
+              <strong>Interpretar comando</strong>
+              <small>Aprender o que a questao pede</small>
+            </button>
+            <button class="course-step" type="button" data-lesson="tema">
+              <span>2</span>
+              <strong>Entender tema</strong>
+              <small>Transformar tema em pergunta</small>
+            </button>
+            <button class="course-step" type="button" data-lesson="repertorio">
+              <span>3</span>
+              <strong>Usar repertorio</strong>
+              <small>Citar e explicar sem enfeite</small>
+            </button>
+            <button class="course-step" type="button" data-lesson="tese">
+              <span>4</span>
+              <strong>Montar tese</strong>
+              <small>Criar a resposta da redacao</small>
+            </button>
+            <button class="course-step" type="button" data-lesson="paragrafo">
+              <span>5</span>
+              <strong>Fazer paragrafo</strong>
+              <small>Treinar antes das 30 linhas</small>
+            </button>
+          </aside>
+
+          <article class="course-lesson">
+            <div class="lesson-head">
+              <span id="lessonBadge" class="eyebrow">Passo 1</span>
+              <h3 id="lessonTitle">Interpretar comando</h3>
+              <p id="lessonIntro">Carregando aula...</p>
+            </div>
+            <div id="lessonBody" class="lesson-body"></div>
+            <div class="practice-box">
+              <h4>Treino guiado</h4>
+              <p id="lessonPractice"></p>
+              <label class="student-answer">
+                Sua resposta
+                <textarea id="lessonStudentAnswer" rows="4" placeholder="Responda com suas palavras. A IA vai corrigir antes de voce concluir a aula."></textarea>
+              </label>
+              <button id="askTutorButton" class="button dark" type="button">Pedir ajuda da IA</button>
+              <div id="tutorFeedback" class="tutor-feedback" aria-live="polite">Escreva sua resposta e peça ajuda da IA para saber se está no caminho certo.</div>
+              <details>
+                <summary>Ver resposta explicada</summary>
+                <p id="lessonAnswer"></p>
+              </details>
+            </div>
+            <div class="lesson-actions">
+              <button id="finishLessonButton" class="button primary" type="button">Concluir esta aula</button>
+              <button id="nextLessonButton" class="button ghost" type="button">Proxima aula</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="path-grid legacy-path-grid" aria-hidden="true">
+          <article class="path-card" data-step-card="1">
+            <span class="step-number">1</span>
+            <h3>Interpretar o comando</h3>
+            <p>Antes de ler o texto, descubra o que a questão pede: ideia central, inferência, ironia, função da linguagem ou opinião do autor.</p>
+            <label class="step-check"><input type="checkbox" data-study-step="interpretacao" /> Entendi o comando</label>
+          </article>
+          <article class="path-card" data-step-card="2">
+            <span class="step-number">2</span>
+            <h3>Entender o tema</h3>
+            <p>Transforme o tema em pergunta. Exemplo: "desafios da educação" vira "por que esse problema existe e quem é afetado?".</p>
+            <label class="step-check"><input type="checkbox" data-study-step="tema" /> Sei explicar o tema</label>
+          </article>
+          <article class="path-card" data-step-card="3">
+            <span class="step-number">3</span>
+            <h3>Escolher repertório</h3>
+            <p>Pegue um repertório coringa e conecte ao tema. Não basta citar: precisa explicar por que ele prova sua ideia.</p>
+            <label class="step-check"><input type="checkbox" data-study-step="repertorio" /> Tenho repertório</label>
+          </article>
+          <article class="path-card" data-step-card="4">
+            <span class="step-number">4</span>
+            <h3>Montar tese</h3>
+            <p>A tese é sua resposta. Use: "O problema ocorre por causa de X e Y". Essas duas causas viram os dois desenvolvimentos.</p>
+            <label class="step-check"><input type="checkbox" data-study-step="tese" /> Montei uma tese</label>
+          </article>
+          <article class="path-card" data-step-card="5">
+            <span class="step-number">5</span>
+            <h3>Treinar parágrafo</h3>
+            <p>Faça um parágrafo com tópico frasal, explicação, exemplo e consequência. Só depois junte tudo.</p>
+            <label class="step-check"><input type="checkbox" data-study-step="paragrafo" /> Fiz um parágrafo</label>
+          </article>
+          <article class="path-card locked-redacao" data-step-card="6">
+            <span class="step-number">6</span>
+            <h3>Escrever redação</h3>
+            <p>Agora sim: introdução, D1, D2 e conclusão. Envie para a Gemini corrigir e adaptar seu estudo.</p>
+            <a id="goEssayButton" class="button primary disabled" href="#redacao" aria-disabled="true">Liberar redação</a>
+          </article>
+        </div>
+
+        <div class="path-progress" aria-live="polite">
+          <strong id="pathProgressText">0 de 5 passos feitos</strong>
+          <div class="progress-track"><span id="pathProgressBar"></span></div>
+          <a id="essayAccessButton" class="button primary disabled" href="#redacao" aria-disabled="true">Redacao bloqueada</a>
+          <p id="pathNextAction">Comece pela Aula 1 de interpretação.</p>
+        </div>
+      </section>
+
+      <section id="aulas" class="lesson-section page-section">
+        <div class="section-title">
+          <span class="eyebrow">Comece aqui</span>
+          <h2>Aula 1: interpretação de texto do zero</h2>
+          <p>Se você travou no primeiro assunto, siga esta ordem. Interpretação no ENEM não é adivinhar: é localizar pista, entender comando e eliminar alternativa errada.</p>
+        </div>
+
+        <div class="lesson-grid">
+          <article class="lesson-card main-lesson">
+            <h3>Roteiro de leitura em 5 passos</h3>
+            <ol>
+              <li><strong>Leia o comando antes do texto.</strong> Procure se a questão pede ideia principal, efeito de sentido, opinião do autor, função da linguagem ou inferência.</li>
+              <li><strong>Marque palavras que mudam o sentido.</strong> Exemplos: mas, porém, portanto, embora, logo, ainda, apenas, sobretudo.</li>
+              <li><strong>Separe fato de opinião.</strong> Fato é verificável. Opinião tem julgamento, crítica, defesa ou ironia.</li>
+              <li><strong>Volte ao trecho exato.</strong> No ENEM, a resposta costuma estar presa a uma pista do texto, não ao que a gente acha sobre o tema.</li>
+              <li><strong>Elimine exageros.</strong> Desconfie de alternativas com sempre, nunca, todos, nenhum, somente, totalmente.</li>
+            </ol>
+          </article>
+
+          <article class="lesson-card">
+            <h3>Exemplo resolvido</h3>
+            <p class="sample-text">Texto: "Embora o acesso à internet tenha crescido, muitos estudantes ainda não conseguem transformar conexão em aprendizagem."</p>
+            <p><strong>Pergunta:</strong> qual é a ideia central?</p>
+            <p><strong>Resposta:</strong> o texto contrapõe acesso técnico e aprendizagem real. A palavra "embora" mostra contraste, e "ainda" mostra permanência do problema.</p>
+          </article>
+
+          <article class="lesson-card">
+            <h3>Treino rápido</h3>
+            <p class="sample-text">"A leitura, quando praticada apenas para cumprir obrigação escolar, perde parte de sua potência formadora."</p>
+            <p><strong>O que o autor defende?</strong></p>
+            <details>
+              <summary>Ver resposta</summary>
+              <p>Defende que a leitura precisa ir além da obrigação. A crítica está em "apenas para cumprir obrigação", que reduz o valor formativo da leitura.</p>
+            </details>
+          </article>
+
+          <article class="lesson-card">
+            <h3>Como estudar hoje</h3>
+            <ul>
+              <li>Faça 5 questões só de interpretação.</li>
+              <li>Em cada erro, escreva: "errei porque ignorei o comando", "não voltei ao texto" ou "caí em exagero".</li>
+              <li>Depois escreva 1 parágrafo usando a ideia do texto como repertório de redação.</li>
+            </ul>
+            <a class="button primary inline-action" href="#temas">Próxima página: temas</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="redacao" class="tool-section page-section">
+        <div class="section-title">
+          <span class="eyebrow">Corretor Gemini</span>
+          <h2>Treino de redação nota 1000</h2>
+          <p>Use a estrutura dissertativo-argumentativa do ENEM e receba devolutiva por C1 a C5. O painel abaixo mostra se a IA está ativa.</p>
+        </div>
+
+        <div class="editor-grid">
+          <form id="essayForm" class="essay-form">
+            <label>
+              Tema
+              <input id="themeInput" name="tema" value="Desafios para a democratização do acesso à educação de qualidade no Brasil" />
+            </label>
+            <label>
+              Redação
+              <textarea id="essayInput" name="texto" rows="18" placeholder="Introdução com contextualização e tese&#10;&#10;Desenvolvimento 1 com argumento, explicação e exemplo&#10;&#10;Desenvolvimento 2 com outro argumento&#10;&#10;Conclusão com agente, ação, meio, finalidade e detalhamento"></textarea>
+            </label>
+            <div class="form-footer">
+              <span id="wordCount">0 palavras</span>
+              <button class="button primary" type="submit">Corrigir e adaptar plano</button>
+            </div>
+          </form>
+
+          <aside class="result-panel" aria-live="polite">
+            <div class="ai-status">
+              <span id="aiStatusDot" class="status-dot"></span>
+              <div>
+                <strong id="aiStatusText">Verificando IA...</strong>
+                <p id="aiStatusDetail">Quando a Gemini responder ao teste, a correção é feita pela IA.</p>
+              </div>
+            </div>
+            <button id="testAiButton" class="button secondary dark" type="button">Testar IA agora</button>
+            <div class="score-ring">
+              <span id="scoreTotal">---</span>
+              <small>/1000</small>
+            </div>
+            <div id="feedbackState" class="feedback-state">Envie uma redação para ver nota, comentários e prioridades.</div>
+            <div id="competencies" class="competencies"></div>
+            <div id="adaptiveAdvice" class="adaptive-advice"></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="temas" class="band page-section">
+        <div class="section-title">
+          <span class="eyebrow">Para saber do que falar</span>
+          <h2>Temas de redação e repertórios coringa</h2>
+          <p>Não é promessa de tema exato. É um banco de eixos sociais recorrentes no ENEM para você treinar argumento, repertório e intervenção.</p>
+        </div>
+
+        <div class="theme-grid">
+          <article>
+            <h3>Educação</h3>
+            <p><strong>Possíveis recortes:</strong> evasão escolar, desigualdade digital, valorização docente, leitura, educação inclusiva.</p>
+            <p><strong>Repertórios:</strong> Paulo Freire; Constituição de 1988; Darcy Ribeiro.</p>
+            <p><strong>Intervenção:</strong> MEC + escolas + formação docente + materiais digitais + busca ativa de estudantes.</p>
+          </article>
+          <article>
+            <h3>Tecnologia e sociedade</h3>
+            <p><strong>Possíveis recortes:</strong> IA, desinformação, vício em telas, privacidade, acesso desigual à internet.</p>
+            <p><strong>Repertórios:</strong> Bauman; Marco Civil da Internet; dados do IBGE sobre acesso digital.</p>
+            <p><strong>Intervenção:</strong> governo + plataformas + educação midiática + campanhas permanentes.</p>
+          </article>
+          <article>
+            <h3>Saúde pública</h3>
+            <p><strong>Possíveis recortes:</strong> saúde mental, vacinação, saneamento, obesidade, acesso ao SUS.</p>
+            <p><strong>Repertórios:</strong> Constituição: saúde como direito; OMS; SUS.</p>
+            <p><strong>Intervenção:</strong> Ministério da Saúde + UBS + campanhas + atendimento psicológico escolar.</p>
+          </article>
+          <article>
+            <h3>Meio ambiente</h3>
+            <p><strong>Possíveis recortes:</strong> crise climática, lixo urbano, água, queimadas, consumo sustentável.</p>
+            <p><strong>Repertórios:</strong> Milton Santos; Agenda 2030 da ONU; Código Florestal.</p>
+            <p><strong>Intervenção:</strong> Ministério do Meio Ambiente + municípios + fiscalização + educação ambiental.</p>
+          </article>
+          <article>
+            <h3>Cidadania e direitos</h3>
+            <p><strong>Possíveis recortes:</strong> racismo, violência contra a mulher, inclusão PcD, população idosa, moradia.</p>
+            <p><strong>Repertórios:</strong> Constituição de 1988; Estatuto da Igualdade Racial; Simone de Beauvoir.</p>
+            <p><strong>Intervenção:</strong> Estado + escolas + mídia + canais de denúncia + acolhimento.</p>
+          </article>
+          <article>
+            <h3>Cultura e identidade</h3>
+            <p><strong>Possíveis recortes:</strong> valorização da cultura brasileira, patrimônio, povos indígenas, leitura, arte periférica.</p>
+            <p><strong>Repertórios:</strong> Mário de Andrade; Constituição: direitos culturais; Ailton Krenak.</p>
+            <p><strong>Intervenção:</strong> Ministério da Cultura + escolas + editais + divulgação pública.</p>
+          </article>
+        </div>
+
+        <div class="model-box">
+          <h3>Estrutura para decorar</h3>
+          <p><strong>Introdução:</strong> contextualização + problema + tese com duas causas.</p>
+          <p><strong>D1:</strong> causa 1 + explicação + repertório + consequência.</p>
+          <p><strong>D2:</strong> causa 2 + explicação + exemplo social + fechamento.</p>
+          <p><strong>Conclusão:</strong> agente + ação + meio + finalidade + detalhamento.</p>
+          <a class="button primary inline-action" href="#redacao">Próxima página: redação</a>
+        </div>
+      </section>
+
+      <section id="plano" class="band page-section">
+        <div class="section-title">
+          <span class="eyebrow">Rotina até a prova</span>
+          <h2>Distribuição semanal recomendada</h2>
+          <p>Como você pediu, a prioridade é redação e português, sem abandonar matemática, humanas e natureza.</p>
+        </div>
+        <div class="schedule">
+          <article>
+            <h3>Segunda</h3>
+            <p>Português: interpretação, funções da linguagem e variação linguística.</p>
+            <strong>30 min redação: repertório</strong>
+          </article>
+          <article>
+            <h3>Terça</h3>
+            <p>Matemática: razão, porcentagem, estatística e gráficos.</p>
+            <strong>20 questões antigas</strong>
+          </article>
+          <article>
+            <h3>Quarta</h3>
+            <p>Redação completa com cronômetro e correção por competências.</p>
+            <strong>Meta: 1 texto/semana</strong>
+          </article>
+          <article>
+            <h3>Quinta</h3>
+            <p>Humanas: Brasil República, cidadania, geopolítica e meio ambiente.</p>
+            <strong>Mapa de causas e efeitos</strong>
+          </article>
+          <article>
+            <h3>Sexta</h3>
+            <p>Natureza: ecologia, energia, química ambiental e fisiologia.</p>
+            <strong>Questões + revisão de erros</strong>
+          </article>
+          <article>
+            <h3>Sábado</h3>
+            <p>Simulado parcial do 1º dia: Linguagens, Humanas e redação alternada.</p>
+            <strong>Correção ativa</strong>
+          </article>
+          <article>
+            <h3>Domingo</h3>
+            <p>Revisão espaçada: 1, 3, 7, 15 e 30 dias. Descanso planejado.</p>
+            <strong>Sem virar noite</strong>
+          </article>
+        </div>
+      </section>
+
+      <section id="assuntos" class="content-grid page-section">
+        <div class="section-title full">
+          <span class="eyebrow">Conteúdo</span>
+          <h2>Todos os assuntos, com peso maior em Linguagens e Redação</h2>
+        </div>
+        <article class="subject highlight">
+          <h3>Redação</h3>
+          <ul>
+            <li>Tese clara: problema + causa principal.</li>
+            <li>Dois desenvolvimentos com tópico frasal, explicação, repertório e fechamento.</li>
+            <li>Competência V: agente, ação, meio, finalidade e detalhamento.</li>
+            <li>Repertórios coringa: Constituição de 1988, Paulo Freire, Darcy Ribeiro, Bauman, Milton Santos, IBGE, ONU.</li>
+          </ul>
+        </article>
+        <article class="subject highlight">
+          <h3>Português e Linguagens</h3>
+          <ul>
+            <li>Interpretação de texto, inferência, ironia, tese e ponto de vista.</li>
+            <li>Gêneros textuais, funções da linguagem, intertextualidade.</li>
+            <li>Modernismo, literatura contemporânea, escolas literárias em contexto.</li>
+            <li>Variação linguística, norma padrão, coesão e coerência.</li>
+            <li>Artes, publicidade, charges, tirinhas e linguagem digital.</li>
+          </ul>
+        </article>
+        <article class="subject">
+          <h3>Matemática</h3>
+          <ul>
+            <li>Porcentagem, regra de três, escalas, razão e proporção.</li>
+            <li>Funções, geometria plana/espacial, probabilidade e estatística.</li>
+            <li>Leitura de gráficos e tabelas.</li>
+          </ul>
+        </article>
+        <article class="subject">
+          <h3>Humanas</h3>
+          <ul>
+            <li>Brasil Colônia, Império, República e Era Vargas.</li>
+            <li>Globalização, urbanização, industrialização e meio ambiente.</li>
+            <li>Filosofia política, sociologia, cultura, trabalho e cidadania.</li>
+          </ul>
+        </article>
+        <article class="subject">
+          <h3>Natureza</h3>
+          <ul>
+            <li>Ecologia, genética, fisiologia humana e evolução.</li>
+            <li>Estequiometria, soluções, pH, química orgânica e ambiental.</li>
+            <li>Energia, eletricidade, ondas, óptica e mecânica básica.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="metodos" class="band methods page-section">
+        <div class="section-title">
+          <span class="eyebrow">Métodos</span>
+          <h2>Como estudar sem fingir que estudou</h2>
+        </div>
+        <div class="method-list">
+          <article>
+            <h3>Revisão espaçada</h3>
+            <p>Revise erros e repertórios depois de 1, 3, 7, 15 e 30 dias.</p>
+          </article>
+          <article>
+            <h3>Prática deliberada</h3>
+            <p>Treine o ponto fraco da semana: tese, repertório, coesão ou intervenção.</p>
+          </article>
+          <article>
+            <h3>Simulado com correção ativa</h3>
+            <p>Mais importante que fazer questão é registrar por que errou e como não errar de novo.</p>
+          </article>
+          <article>
+            <h3>Feynman</h3>
+            <p>Explique um conteúdo em voz alta como se ensinasse alguém do 9º ano.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="fontes" class="sources page-section">
+        <h2>Fontes usadas no conteúdo</h2>
+        <p>Inep: matriz de referência, cartilha de redação e provas anteriores. Google AI: documentação atual de chaves e chamada REST da Gemini API.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      Feito para estudar ENEM.
+    </footer>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
