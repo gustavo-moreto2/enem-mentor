@@ -204,6 +204,7 @@ a {
 
 .tool-section,
 .path-section,
+.bot-section,
 .lesson-section,
 .content-grid,
 .band,
@@ -385,6 +386,68 @@ a {
 .button.ghost {
   background: #edf1ee;
   color: var(--green);
+}
+
+.chat-shell {
+  display: grid;
+  gap: 16px;
+  max-width: 920px;
+}
+
+.chat-messages {
+  display: grid;
+  gap: 12px;
+  min-height: 340px;
+  max-height: 52vh;
+  overflow: auto;
+  padding: 16px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.chat-message {
+  max-width: min(720px, 100%);
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfa;
+}
+
+.chat-message.user {
+  justify-self: end;
+  background: #eef5f1;
+  border-color: rgba(36, 91, 71, 0.26);
+}
+
+.chat-message.bot {
+  justify-self: start;
+}
+
+.chat-message strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.chat-message p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.chat-form {
+  padding: 16px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.chat-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .path-card {

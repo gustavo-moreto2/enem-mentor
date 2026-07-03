@@ -2,6 +2,7 @@ const firstExam = new Date("2026-11-01T00:00:00-03:00");
 const secondExam = new Date("2026-11-08T00:00:00-03:00");
 const historyKey = "enemEssayHistory";
 const stepsKey = "enemLessonProgressV2";
+const chatKey = "enemQuestionBotHistory";
 
 const daysFirst = document.querySelector("#daysFirst");
 const daysSecond = document.querySelector("#daysSecond");
@@ -37,6 +38,10 @@ const nextLessonButton = document.querySelector("#nextLessonButton");
 const lessonStudentAnswer = document.querySelector("#lessonStudentAnswer");
 const askTutorButton = document.querySelector("#askTutorButton");
 const tutorFeedback = document.querySelector("#tutorFeedback");
+const chatForm = document.querySelector("#chatForm");
+const chatInput = document.querySelector("#chatInput");
+const chatMessages = document.querySelector("#chatMessages");
+const clearChatButton = document.querySelector("#clearChatButton");
 
 const pageIds = pageSections.map((section) => section.id);
 const lessons = [
@@ -133,6 +138,99 @@ function getSavedSteps() {
 
 function saveSteps(steps) {
   localStorage.setItem(stepsKey, JSON.stringify(steps));
+}
+
+function getChatHistory() {
+  try {
+    return JSON.parse(localStorage.getItem(chatKey) || "[]");
+  } catch {
+    return [];
+  }
+}
+
+function saveChatHistory(messages) {
+  localStorage.setItem(chatKey, JSON.stringify(messages.slice(-12)));
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function renderChat() {
+  const messages = getChatHistory();
+  if (!messages.length) {
+    chatMessages.innerHTML = `
+      <article class="chat-message bot">
+        <strong>Bot ENEM</strong>
+        <p>Me pergunte algo como: "como faço uma introdução?", "o que é repertório produtivo?" ou "como interpretar uma charge?".</p>
+      </article>
+    `;
+    return;
+  }
+
+  chatMessages.innerHTML = messages
+    .map(
+      (message) => `
+        <article class="chat-message ${message.role}">
+          <strong>${message.role === "user" ? "Você" : "Bot ENEM"}</strong>
+          <p>${escapeHtml(message.text)}</p>
+        </article>
+      `,
+    )
+    .join("");
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+async function askQuestionBot(event) {
+  event.preventDefault();
+  const pergunta = chatInput.value.trim();
+  if (!pergunta) return;
+
+  const messages = [...getChatHistory(), { role: "user", text: pergunta }];
+  saveChatHistory(messages);
+  renderChat();
+  chatInput.value = "";
+
+  const pendingMessages = [...messages, { role: "bot", text: "Pensando em uma explicação simples..." }];
+  chatMessages.innerHTML = pendingMessages
+    .map(
+      (message) => `
+        <article class="chat-message ${message.role}">
+          <strong>${message.role === "user" ? "Você" : "Bot ENEM"}</strong>
+          <p>${escapeHtml(message.text)}</p>
+        </article>
+      `,
+    )
+    .join("");
+
+  try {
+    const response = await fetch("/api/perguntar", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        pergunta,
+        historico: messages,
+      }),
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.error || "Nao consegui responder agora.");
+    }
+    saveChatHistory([...messages, { role: "bot", text: data.resposta }]);
+  } catch (error) {
+    saveChatHistory([...messages, { role: "bot", text: error.message || "Nao consegui responder agora." }]);
+  }
+  renderChat();
+}
+
+function clearChat() {
+  localStorage.removeItem(chatKey);
+  renderChat();
 }
 
 function allStepsDone() {
@@ -441,6 +539,7 @@ daysSecond.textContent = daysUntil(secondExam);
 renderAverage();
 updateWordCount();
 renderLesson(0);
+renderChat();
 openHashPage();
 loadAiStatus();
 
@@ -454,6 +553,8 @@ courseButtons.forEach((button, index) => {
 finishLessonButton.addEventListener("click", finishCurrentLesson);
 nextLessonButton.addEventListener("click", goNextLesson);
 askTutorButton.addEventListener("click", askTutorForHelp);
+chatForm.addEventListener("submit", askQuestionBot);
+clearChatButton.addEventListener("click", clearChat);
 lessonStudentAnswer.addEventListener("input", () => {
   currentTutorApproval = Boolean(getSavedSteps()[lessons[currentLessonIndex].id]);
   if (!currentTutorApproval) {

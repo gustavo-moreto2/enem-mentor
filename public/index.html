@@ -18,6 +18,7 @@
         <a href="#aulas">Aulas</a>
         <a href="#temas">Temas</a>
         <a href="#redacao">Redação</a>
+        <a href="#bot">Bot</a>
         <a href="#plano">Plano</a>
         <a href="#assuntos">Assuntos</a>
         <a href="#metodos">Métodos</a>
@@ -307,6 +308,28 @@
           <p><strong>D2:</strong> causa 2 + explicação + exemplo social + fechamento.</p>
           <p><strong>Conclusão:</strong> agente + ação + meio + finalidade + detalhamento.</p>
           <a class="button primary inline-action" href="#redacao">Próxima página: redação</a>
+        </div>
+      </section>
+
+      <section id="bot" class="bot-section page-section">
+        <div class="section-title">
+          <span class="eyebrow">Tire dúvidas</span>
+          <h2>Bot de perguntas do ENEM</h2>
+          <p>Use para perguntar sobre interpretação, redação, repertório, matemática básica, cronograma ou qualquer assunto da prova. Ele responde com explicação simples e uma tarefa curta para praticar.</p>
+        </div>
+
+        <div class="chat-shell">
+          <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+          <form id="chatForm" class="chat-form">
+            <label>
+              Sua pergunta
+              <textarea id="chatInput" rows="4" placeholder="Exemplo: como eu faço uma tese para um tema de saúde mental?"></textarea>
+            </label>
+            <div class="chat-actions">
+              <button class="button primary" type="submit">Perguntar</button>
+              <button id="clearChatButton" class="button ghost" type="button">Limpar conversa</button>
+            </div>
+          </form>
         </div>
       </section>
 
